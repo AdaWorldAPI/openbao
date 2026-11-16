@@ -1,10 +1,10 @@
 name: Release distro packages
 
+# Manual-only: GitHub-hosted runner minutes are capped (the account's
+# included minutes are used up), so this workflow no longer starts on push,
+# pull_request or a schedule. Run it from the Actions tab when needed, and run
+# the same checks locally before pushing.
 on:
-  release:
-    types:
-      - published
-
   # Use the manual trigger when the workflow or related scripts had to be
   # updated post-release to successfully publish.
   workflow_dispatch:

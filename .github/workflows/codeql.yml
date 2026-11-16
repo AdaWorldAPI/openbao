@@ -5,9 +5,12 @@
 # or to provide custom queries or build logic.
 name: "CodeQL Advanced"
 
+# Manual-only: GitHub-hosted runner minutes are capped (the account's
+# included minutes are used up), so this workflow no longer starts on push,
+# pull_request or a schedule. Run it from the Actions tab when needed, and run
+# the same checks locally before pushing.
 on:
-  schedule:
-    - cron: '34 23 * * 4'
+  workflow_dispatch:
 
 permissions:
   contents: read

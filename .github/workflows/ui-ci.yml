@@ -1,20 +1,9 @@
 name: UI CI
+# Manual-only: GitHub-hosted runner minutes are capped (the account's
+# included minutes are used up), so this workflow no longer starts on push,
+# pull_request or a schedule. Run it from the Actions tab when needed, and run
+# the same checks locally before pushing.
 on:
-  merge_group:
-  pull_request:
-    # The default types for pull_request are [ opened, synchronize, reopened ].
-    # This is insufficient for our needs, since we're skipping stuff on PRs in
-    # draft mode.  By adding the ready_for_review type, when a draft pr is marked
-    # ready, we run everything, including the stuff we'd have skipped up until now.
-    types: [opened, synchronize, reopened, ready_for_review]
-    paths:
-      - "ui/**"
-  push:
-    branches:
-      - main
-      - release/**
-    paths:
-      - "ui/**"
   workflow_dispatch:
 
 permissions:
